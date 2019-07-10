@@ -10,14 +10,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/favicon.png' %}">
     <title>Material Pro Admin Template - The Most Complete & Trusted Bootstrap 4 Admin Template</title>
     <!-- Bootstrap Core CSS -->
-    <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'material/assets/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{% static 'material/html/css/style.css' %}" rel="stylesheet">
     <!-- You can change the theme colors from here -->
-    <link href="css/colors/blue.css" id="theme" rel="stylesheet">
+    <link href="{% static 'material/html/css/colors/blue.css' %}" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -50,15 +50,17 @@
                     <a class="navbar-brand" href="index.html">
                         <!-- Logo icon --><b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                            
+
                             <!-- Light Logo icon -->
-                            <img src="../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                            <img src="{% static 'material/assets/images/logo-light-icon.png' %}" alt="homepage"
+                                class="light-logo" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text --><span>
-                         
-                         <!-- Light Logo text -->    
-                         <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
+
+                            <!-- Light Logo text -->
+                            <img src="{% static 'material/assets/images/logo-light-text.png' %}" class="light-logo"
+                                alt="homepage" /></span> </a>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -69,13 +71,18 @@
                     <!-- ============================================================== -->
                     <ul class="navbar-nav mr-auto mt-md-0">
                         <!-- This is  -->
-                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+                        <li class="nav-item"> <a
+                                class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
+                                href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
                         <!-- ============================================================== -->
                         <!-- Search -->
                         <!-- ============================================================== -->
-                        <li class="nav-item hidden-sm-down search-box"> <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                        <li class="nav-item hidden-sm-down search-box"> <a
+                                class="nav-link hidden-sm-down text-muted waves-effect waves-dark"
+                                href="javascript:void(0)"><i class="ti-search"></i></a>
                             <form class="app-search">
-                                <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
+                                <input type="text" class="form-control" placeholder="Search & enter"> <a
+                                    class="srh-btn"><i class="ti-close"></i></a> </form>
                         </li>
                     </ul>
                     <!-- ============================================================== -->
@@ -85,9 +92,14 @@
                         <!-- ============================================================== -->
                         <!-- Profile -->
                         <!-- ============================================================== -->
+                        {% if request.user.is_authenticated %}
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user" class="profile-pic m-r-10" />{{user.username}}</a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark"
+                                href="https://www.w3schools.com/" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"><img src="{% static 'material/assets/images/users/1.jpg' %}" alt="user"
+                                    class="profile-pic m-r-10" />{{request.user.username}}</a>
                         </li>
+                        {% endif %}
                     </ul>
                 </div>
             </nav>
@@ -104,23 +116,31 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
+                        <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i
+                                    class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="pages-profile.html" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Profile</span></a>
+                        <li> <a class="waves-effect waves-dark" href="pages-profile.html" aria-expanded="false"><i
+                                    class="mdi mdi-account-check"></i><span class="hide-menu">Profile</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="table-basic.html" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Basic Table</span></a>
+                        <li> <a class="waves-effect waves-dark" href="table-basic.html" aria-expanded="false"><i
+                                    class="mdi mdi-table"></i><span class="hide-menu">Basic Table</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="icon-material.html" aria-expanded="false"><i class="mdi mdi-emoticon"></i><span class="hide-menu">Icons</span></a>
+                        <li> <a class="waves-effect waves-dark" href="icon-material.html" aria-expanded="false"><i
+                                    class="mdi mdi-emoticon"></i><span class="hide-menu">Icons</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i class="mdi mdi-earth"></i><span class="hide-menu">Google Map</span></a>
+                        <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i
+                                    class="mdi mdi-earth"></i><span class="hide-menu">Google Map</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu">Blank Page</span></a>
+                        <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i
+                                    class="mdi mdi-book-open-variant"></i><span class="hide-menu">Blank Page</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="pages-error-404.html" aria-expanded="false"><i class="mdi mdi-help-circle"></i><span class="hide-menu">Error 404</span></a>
+                        <li> <a class="waves-effect waves-dark" href="pages-error-404.html" aria-expanded="false"><i
+                                    class="mdi mdi-help-circle"></i><span class="hide-menu">Error 404</span></a>
                         </li>
                     </ul>
                     <div class="text-center m-t-30">
-                        <a href="https://wrappixel.com/templates/materialpro/" class="btn waves-effect waves-light btn-warning hidden-md-down"> Upgrade to Pro</a>
+                        <a href="https://wrappixel.com/templates/materialpro/"
+                            class="btn waves-effect waves-light btn-warning hidden-md-down"> Upgrade to Pro</a>
                     </div>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -128,9 +148,12 @@
             <!-- End Sidebar scroll-->
             <!-- Bottom points-->
             <div class="sidebar-footer">
-                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
-                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
-                <!-- item--><a action="{% url 'logout' %}" method="POST" href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a> </div>
+                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Settings"><i
+                        class="ti-settings"></i></a>
+                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Email"><i
+                        class="mdi mdi-gmail"></i></a>
+                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Logout"><i
+                        class="mdi mdi-power"></i></a> </div>
             <!-- End Bottom points-->
         </aside>
         <!-- ============================================================== -->
@@ -148,16 +171,7 @@
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
                 <div class="row page-titles">
-                    <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">Dashboard</h3>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
-                    </div>
-                    <div class="col-md-7 col-4 align-self-center">
-                        <a href="{% url 'logout' %}" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down">Logout</a>
-                    </div>
+                   
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
@@ -169,55 +183,30 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-block">
-                                This is some text within a card block.
+                                {% block list %}
+                                {% endblock %}
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
-            <div class="row">
-
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Matrícula</th>
-                            <th>Ano de nascimento</th>
-                            <th>Sexo</th>
-        
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for usuario in usuarios %}
-                        <tr>
-                            <td>{{usuario.name}}</td>
-                            <td>{{usuario.registration}}</td>
-                            <td>{{usuario.date_of_birth}}</td>
-                            <td>{{usuario.genrer}}</td>
-                            <td>
-                                <a href="/usuario/delete/{{usuario.id}}">Deletar</a>
-                            </td>
-        
-        
-                        </tr>
-                        {% endfor %}
-        
-                    </tbody>
-                </table>
-            </div>
-            
-            
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{message.tags}} messeges-alerts" role="alert">
+                    <button type="button" class="close" data-dismiss="alert">x</button>
+                    {{message}}
+                </div>
+                {% endfor %}
+                {% else %}
                 © 2017 Material Pro Admin by wrappixel.com
+                {% endif %}
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -233,20 +222,22 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="../assets/plugins/jquery/jquery.min.js"></script>
+    <script src="{% static 'material/assets/plugins/jquery/jquery.min.js' %}"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/plugins/bootstrap/js/tether.min.js"></script>
-    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{% static 'material/assets/plugins/bootstrap/js/tether.min.js' %}"></script>
+    <script src="{% static 'material/assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="js/jquery.slimscroll.js"></script>
+    <script src="{% static 'material/html/js/jquery.slimscroll.js' %}"></script>
     <!--Wave Effects -->
-    <script src="js/waves.js"></script>
+    <script src="{% static 'material/html/js/waves.js' %}"></script>
     <!--Menu sidebar -->
-    <script src="js/sidebarmenu.js"></script>
+    <script src="{% static 'material/html/js/sidebarmenu.js' %}"></script>
     <!--stickey kit -->
-    <script src="../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="{% static 'material/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js' %}"></script>
     <!--Custom JavaScript -->
-    <script src="js/custom.min.js"></script>
+    <script src="{% static 'material/html/js/custom.min.js' %}"></script>
+    {% block script %}
+    {% endblock %}
 </body>
 
 </html>
